@@ -15,7 +15,7 @@ class Member:
     
     # 회원 정보 print
     def display(self):
-        pass
+        print(f"회원 이름 : {self.name}, 회원 아이디: {self.username}")
 
 
 class Post:
