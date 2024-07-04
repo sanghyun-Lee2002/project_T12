@@ -1,5 +1,6 @@
 import hashlib
 
+
 class Member:
     def __init__(self, name, username, password):
         self.name = name            # 회원 이름
@@ -12,13 +13,18 @@ class Member:
         hash_obj.update(password.encode())  # 데이터 업데이트
         hash_value = hash_obj.hexdigest()   # 해시 값 추출
         return hash_value
-    
+
     # 회원 정보 print
     def display(self):
         print(f"회원 이름 : {self.name}, 회원 아이디: {self.username}")
 
 
 class Post:
+
+    def __init__(self, title, content, author):
+        self.title = title 
+        self.content = content 
+        self.author = author(username)
     pass
 
 
@@ -37,5 +43,3 @@ posts = []
 
 
 # 특정 단어가 content에 포함된 게시글의 제목 프린트
-
-
