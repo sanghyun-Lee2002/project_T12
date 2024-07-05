@@ -10,9 +10,9 @@ class Member:
 
     # 비밀번호 암호화
     def encrypt_password(self, password):
-        hash_obj = hashlib.sha256()         # SHA-256 해시 객체 생성
-        hash_obj.update(password.encode())  # 데이터 업데이트
-        hash_value = hash_obj.hexdigest(    )#해시 값 추출
+        hash_obj = hashlib.sha256()          # SHA-256 해시 객체 생성
+        hash_obj.update(password.encode())   # 데이터 업데이트
+        hash_value = hash_obj.hexdigest()    # 해시 값 추출
         return hash_value
     
     # 회원 정보 print
@@ -24,7 +24,7 @@ class Post:
     def __init__(self, title, content, author):
         self.title = title
         self.content = content
-        self.author = author        # 작성자 Member.username
+        self.author = author                # 작성자 Member.username
 
 
 # 함수 정의
@@ -117,3 +117,4 @@ if __name__ == "__main__":
     for post in posts:
         if keyword_to_check in post.content:
             print(post.title)
+            
