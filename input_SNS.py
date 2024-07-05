@@ -59,10 +59,11 @@ members.append(member3)
 print("\n세 번째 포스트 3개")
 for _ in range(3):
     post = post_from_input()
-    posts.append(post)cd
+    posts.append(post)
 
 
 # 생성된 멤버와 포스트 확인
+
 print("\n새로운 멤버")
 for member in members:
     print(f"NAME: {member.name}, ID: {member.username}")
