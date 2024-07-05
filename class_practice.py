@@ -63,6 +63,29 @@ def create_post_from_input():
     return Post(title, content, author)
 
 
+# 특정유저가 작성한 게시글의 제목을 출력하는 함수
+def search_post_by_username(username_to_check):
+    titles = []
+    for post in posts:
+        if username_to_check in post.author :
+            titles.append(post.title)
+    if titles:
+        print(f"해당 유저가 작성한 게시글 제목 리스트: {titles}")
+    else:
+        print("해당 유저가 작성한 게시글이 없습니다.")
+
+
+# 검색어를 포함한 게시글 제목을 출력하는 함수
+def search_post_by_keyword(keyword_to_check):
+    titles = []
+    for post in posts:
+        if keyword_to_check in post.content:
+            titles.append(post.title)
+    if titles:
+        print(f"해당 키워드가 포함된 게시글 제목 리스트: {titles}")
+    else:
+        print("해당 키워드로 검색된 게시글이 없습니다.")
+
 
 if __name__ == "__main__":
     # 데이터 준비
@@ -73,15 +96,15 @@ if __name__ == "__main__":
     ]
 
     post_data = [
-        ("Title 1", "post 1 content by Lina Kim", "kimwoolina"),
-        ("Title 2", "post 2 content by Lina Kim", "kimwoolina"),
-        ("Title 3", "post 3 content by Lina Kim", "kimwoolina"),
-        ("Title 4", "post 4 content by Sanghyun Lee", "sanghyun"),
-        ("Title 5", "post 5 content by Sanghyun Lee", "sanghyun"),
-        ("Title 6", "post 6 content by Sanghyun Lee", "sanghyun"),
-        ("Title 7", "post 7 content by Saeye Lee", "saeye"),
-        ("Title 8", "post 8 content by Saeye Lee", "saeye"),
-        ("Title 9", "post 9 content by Saeye Lee", "saeye")
+        ("Title 1", "개인 프로젝트가 끝났습니다.", "kimwoolina"),
+        ("Title 2", "팀 프로젝트를 시작하였습니다.", "kimwoolina"),
+        ("Title 3", "깃허브를 시작하였습니다.", "kimwoolina"),
+        ("Title 4", "리포지토리를 생성하였습니다.", "sanghyun"),
+        ("Title 5", "브랜치를 만들고 각자 맡은 코드를 push하였습니다.", "sanghyun"),
+        ("Title 6", "에러가 났습니다.", "sanghyun"),
+        ("Title 7", "깃허브가 좋지만 어렵습니다. 코드리뷰를 해야합니다.", "saeye"),
+        ("Title 8", "팀 프로젝트는 즐겁습니다.", "saeye"),
+        ("Title 9", "코드리뷰를 하면서 많은 걸 배울 수 있었습니다.", "saeye")
     ]
 
     # Members 리스트 생성 및 회원 인스턴스 추가
@@ -119,16 +142,8 @@ if __name__ == "__main__":
         if another.lower() != 'yes':
             break
 
-    # 특정 유저가 작성한 게시글의 제목 프린트
-    username_to_check = "kimwoolina"
-    print(f"\nPosts written by {username_to_check}:")
-    for post in posts:
-        if post.author == username_to_check:
-            print(post.title)
+username_to_check = input("\n게시글 작성자 검색: ")
+search_post_by_username(username_to_check)
 
-    # 특정 단어가 content에 포함된 게시글의 제목 프린트
-    keyword_to_check = "Lee"
-    print(f"\nPosts containing '{keyword_to_check}' in content:")
-    for post in posts:
-        if keyword_to_check in post.content:
-            print(post.title)
+keyword_to_check = input("\n키워드로 게시글 검색: ")
+search_post_by_keyword(keyword_to_check)
