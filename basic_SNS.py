@@ -37,21 +37,28 @@ posts = [
     Post("깃허브", "코드리뷰를 하기 위해 깃허브 브랜치에 각자 만든 코드를 업로드 하였습니다.", "saeye")
 ]
 
+
 # 멤버와 포스트 출력
-print("Member Info")
-for member in members:
-    print(f"이름: {member.name}, 사용자명: {member.username}")
+print("\nMember Info")
+def member_info(members):
+    for member in members:
+        print(f"이름: {member.name}, ID: {member.username}")
+
+member_info(members)
 
 print("\nPost Info")
-for post in posts:
-    post.display_post()
+def post_info(posts):
+    for post in posts:
+        post.display_post()
 
+post_info(posts)
 
 # members 리스트를 돌면서 회원들의 이름 출력
-for member in members:
-    print(member.name)
+def member_name():
+    for member in members:
+        print(member.name)
 
-
+print("")
 # 검색어를 포함한 게시글 제목을 출력하는 함수
 def search_post(keyword):
     titles = []
@@ -59,9 +66,9 @@ def search_post(keyword):
         if keyword in post.content:
             titles.append(post.title)
     if titles:
-        print(f"\n해당 키워드가 포함된 게시글 제목 리스트: {titles}")
+        print(f"해당 키워드가 포함된 게시글 제목 리스트: {titles}")
     else:
-        print("\n해당 키워드로 검색된 게시글이 없습니다.")
+        print("해당 키워드로 검색된 게시글이 없습니다.")
 
 keyword = input("검색할 키워드를 입력해주세요: ")
 search_post(keyword)
