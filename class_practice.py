@@ -31,10 +31,10 @@ class Post:
 
     def display(self):
         print(
-            f"[Title]{self.post}\n[Auther]{self.post}\n[Content]{self.post}\n")
+            f"[Title]{self.post}\n[author]{self.post}\n[Content]{self.post}\n")
 
     def __repr__(self):
-        return f"{self.auther}님이 작성하신 {self.title}"
+        return f"{self.author}님이 작성하신 {self.title}"
 
 
 # Members 리스트 생성 및 회원 인스턴스 추가
@@ -62,23 +62,23 @@ posts = []
 for member in members:
     print(member.name)
 
-    p1 = post('안녕하세요', '잘 부탁드립니다.', m1.name)
-    p2 = post('Hi', 'Nice to meet you', m1.name)
-    p3 = post('Hello', 'Rock', m1.name)
+    p1 = Post('안녕하세요', '잘 부탁드립니다.', m1.name)
+    p2 = Post('Hi', 'Nice to meet you', m1.name)
+    p3 = Post('Hello', 'Rock', m1.name)
     posts.append(p1)
     posts.append(p2)
     posts.append(p3)
 
-    p4 = post('Super Shy', '슈퍼샤이아.', m2.name)
-    p5 = post('백발백중하는 명사수', '부산친구 유명가수', m2.name)
-    p6 = post('일취월장하며 성장중', '내가 대표해 이 거리를', m2.name)
+    p4 = Post('Super Shy', '슈퍼샤이아.', m2.name)
+    p5 = Post('백발백중하는 명사수', '부산친구 유명가수', m2.name)
+    p6 = Post('일취월장하며 성장중', '내가 대표해 이 거리를', m2.name)
     posts.append(p3)
     posts.append(p4)
     posts.append(p5)
 
-    p7 = post('Super Shy', '슈퍼샤이아.', m3.name)
-    p8 = post('백발백중하는 명사수', '부산친구 유명가수', m3.name)
-    p9 = post('일취월장하며 성장중', '내가 대표해 이 거리를', m3.name)
+    p7 = Post('Super Shy', '슈퍼샤이아.', m3.name)
+    p8 = Post('백발백중하는 명사수', '부산친구 유명가수', m3.name)
+    p9 = Post('일취월장하며 성장중', '내가 대표해 이 거리를', m3.name)
     posts.append(p7)
     posts.append(p8)
     posts.append(p9)
