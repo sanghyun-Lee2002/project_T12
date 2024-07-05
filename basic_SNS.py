@@ -38,27 +38,24 @@ posts = [
 ]
 
 
-# 멤버와 포스트 출력
-print("\nMember Info")
+# 멤버 정보 출력 함수
 def member_info(members):
+    print("\nMember Info")
     for member in members:
         print(f"이름: {member.name}, ID: {member.username}")
 
-member_info(members)
-
-print("\nPost Info")
+# 포스트 정보 툴력 함수
 def post_info(posts):
+    print("\nPost Info")
     for post in posts:
         post.display_post()
 
-post_info(posts)
 
 # members 리스트를 돌면서 회원들의 이름 출력
 def member_name():
     for member in members:
         print(member.name)
 
-print("")
 # 검색어를 포함한 게시글 제목을 출력하는 함수
 def search_post(keyword):
     titles = []
@@ -70,5 +67,9 @@ def search_post(keyword):
     else:
         print("해당 키워드로 검색된 게시글이 없습니다.")
 
+
+member_info(members)
+post_info(posts)
+print("")
 keyword = input("검색할 키워드를 입력해주세요: ")
 search_post(keyword)
