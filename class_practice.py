@@ -22,10 +22,12 @@ class Member:
 class Post:
 
     def __init__(self, title, content, author):
-        self.title = title 
-        self.content = content 
-        self.author = author(username)
-    pass
+        self.title = title      # 타이틀
+        self.content = content  # 컨텐츠
+        self.author = author    # 그 외
+    
+    def display(self):
+        print(f"[Title]{self.post}\n[Auther]{self.post}\n[Content]{self.post}\n")
 
 
 # Members 리스트 생성 및 회원 인스턴스 추가
