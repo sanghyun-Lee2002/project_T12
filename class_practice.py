@@ -17,7 +17,7 @@ class Member:
     
     # 회원 정보 print
     def display(self):
-        print(f"회원 이름 : {self.name}, 회원 아이디: {self.username}")
+        print(f"name : {self.name} / username : {self.username}")
     
 
 class Post:
@@ -25,6 +25,10 @@ class Post:
         self.title = title
         self.content = content
         self.author = author                # 작성자 Member.username
+
+    # 글 정보 print
+    def display(self):
+        print(f"title : {self.title} / content: {self.content} / author : {self.author} ")
 
 
 # 함수 정의
@@ -39,20 +43,21 @@ def add_posts(post_list, post_data):
 
 
 def display_member_names(member_list):
-    print("")
+    print("\n-------- New Member List --------")
     for member in member_list:
         print(f"회원 이름: {member.name}")
     print("")
 
+
 def create_member_from_input():
-    name = input("Enter member name: ")
+    name = input("\nEnter member name: ")
     username = input("Enter username: ")
     password = input("Enter password: ")
     return Member(name, username, password)
 
 
 def create_post_from_input():
-    title = input("Enter post title: ")
+    title = input("\nEnter post title: ")
     content = input("Enter post content: ")
     author = input("Enter post author: ")
     return Post(title, content, author)
@@ -83,14 +88,24 @@ if __name__ == "__main__":
     members = []
     add_members(members, member_data)
 
+    # 기존 맴버 정보 출력
+    print("\n-------- Member List --------")
+    for member in members:
+        member.display()
+
     # Posts 리스트 생성 및 게시글 인스턴스 추가
     posts = []
     add_posts(posts, post_data)
 
+    # 기존 포스트 정보 출력
+    print("\n--------- Post List ---------")
+    for post in posts:
+        post.display()
+
     # 사용자 입력을 통한 회원 생성
     while True:
         members.append(create_member_from_input())
-        another = input("Add another member? (yes/no): ")
+        another = input("\nAdd another member? (yes/no): ")
         if another.lower() != 'yes':
             break
 
@@ -100,7 +115,7 @@ if __name__ == "__main__":
     # 사용자 입력을 통한 글 생성
     while True:
         posts.append(create_post_from_input())
-        another = input("Add another Post? (yes/no): ")
+        another = input("\nAdd another Post? (yes/no): ")
         if another.lower() != 'yes':
             break
 
@@ -117,4 +132,3 @@ if __name__ == "__main__":
     for post in posts:
         if keyword_to_check in post.content:
             print(post.title)
-            
